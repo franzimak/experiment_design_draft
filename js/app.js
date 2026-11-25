@@ -222,7 +222,27 @@
     if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
     if (i === screens.length - 1) finish();
     debugBar();
+    if (screens[i].dataset.screen === "verify") openCodeModal();
   }
+
+  /* ---------- Verification code pop-up ---------- */
+  const codeModal = document.getElementById("code-modal");
+  const codeInput = document.querySelector("[data-screen='verify'] input[name='_code']");
+  const verifyCode = String(Math.floor(100000 + Math.random() * 900000));   // 6 digits, never saved
+  codeInput.pattern = `\\s*${verifyCode}\\s*`;   // only the shown code is accepted
+
+  function openCodeModal() {
+    renderTexts(codeModal);
+    document.getElementById("code-value").textContent = verifyCode;
+    codeModal.hidden = false;
+    codeModal.querySelector("button").focus();
+  }
+  function closeCodeModal() {
+    if (codeModal.hidden) return;
+    codeModal.hidden = true;
+    codeInput.focus();
+  }
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeCodeModal(); });
 
   function logTime() {
     const id = screens[current].dataset.screen;
@@ -317,8 +337,10 @@
     } else if (action === "goto") {
       logTime();
       show(idx(el.dataset.target));
-    } else if (action === "resend") {
-      screens[current].querySelector(".resent").hidden = false;
+    } else if (action === "show-code") {
+      openCodeModal();
+    } else if (action === "close-code") {
+      closeCodeModal();
     } else if (action === "learn-more") {
       data.decision.learn_more_clicks += 1;
       firstInteraction();

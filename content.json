@@ -47,12 +47,14 @@
     },
 
     "verify": {
-      "sent_to": "To continue, click the link sent to<br><span class=\"strong-line\">{email}</span>",
-      "help": "Not seeing the email in your inbox? <a href=\"#\" data-action=\"resend\">Try sending again</a>.<br>Wrong email? <a href=\"#\" data-action=\"goto\" data-target=\"signin\">Change email address</a>",
-      "resent": "We sent a new link.",
-      "code_hint": "If the link shows a verification code instead of signing you in, enter it here.",
+      "code_hint": "To continue, enter the verification code shown in the pop-up window for<br><span class=\"strong-line\">{email}</span>",
       "code_placeholder": "Enter verification code",
-      "button": "Verify email address"
+      "code_error": "This code is not correct. Please enter the code from the pop-up.",
+      "button": "Verify email address",
+      "help": "Closed the pop-up? <a href=\"#\" data-action=\"show-code\">Show the code again</a>.<br>Wrong email? <a href=\"#\" data-action=\"goto\" data-target=\"signin\">Change email address</a>",
+      "popup_title": "Your verification code",
+      "popup_text": "Enter this code to verify {email}.",
+      "popup_button": "OK"
     },
 
     "terms": {

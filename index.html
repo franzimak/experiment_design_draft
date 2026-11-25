@@ -63,12 +63,14 @@
     <h1 class="display-xl" data-t="signin.title"></h1>
     <p class="hero-sub" data-t="signin.subtitle"></p>
     <form class="panel panel-center" novalidate>
-      <p data-t="verify.sent_to"></p>
-      <p data-t="verify.help"></p>
-      <p class="resent" data-t="verify.resent" hidden></p>
-      <p class="mt-lg" data-t="verify.code_hint"></p>
-      <input class="input input-center" type="text" name="_code" autocomplete="off" data-ph="verify.code_placeholder" required>
+      <p data-t="verify.code_hint"></p>
+      <input class="input input-center" type="text" name="_code" autocomplete="off" inputmode="numeric" data-ph="verify.code_placeholder" required>
+      <p class="field-error field-error-center" data-error="_code" hidden>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 4.5v4.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11" r=".9" fill="currentColor"/></svg>
+        <span data-t="verify.code_error"></span>
+      </p>
       <button type="submit" class="btn btn-dark btn-block" data-t="verify.button"></button>
+      <p class="mt-lg" data-t="verify.help"></p>
     </form>
   </div>
 </section>
@@ -310,6 +312,16 @@
     <div id="debug-output"></div>
   </div>
 </section>
+
+<!-- Pop-up with the verification code (opens when the verify screen is shown) -->
+<div class="modal-backdrop" id="code-modal" hidden>
+  <div class="modal" role="dialog" aria-modal="false" aria-labelledby="code-modal-title">
+    <h2 class="modal-title" id="code-modal-title" data-t="verify.popup_title"></h2>
+    <p class="modal-text" data-t="verify.popup_text"></p>
+    <p class="code-display" id="code-value"></p>
+    <button type="button" class="btn btn-dark btn-block" data-action="close-code" data-t="verify.popup_button"></button>
+  </div>
+</div>
 
 <div class="debug-bar" id="debug-bar" hidden></div>
 <script src="js/app.js"></script>
