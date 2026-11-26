@@ -61,7 +61,7 @@
       first_interaction_ms: null,
       decision_time_ms: null
     },
-    onboarding: {},                // role, usage, plan, promo emails, desktop
+    onboarding: {},                // role, usage, promo emails
     answers: {},                   // questionnaire
     user_agent: navigator.userAgent,
     screen_size: `${screen.width}x${screen.height}`
@@ -100,18 +100,6 @@
     S.role.options.map((o) => `<option value="${esc(o)}">${fill(o)}</option>`).join("");
   roleSel.classList.add("is-placeholder");
   roleSel.addEventListener("change", () => roleSel.classList.remove("is-placeholder"));
-
-  // Pro plan billing toggle
-  const proPrice = document.getElementById("pro-price");
-  const proBilling = document.getElementById("pro-billing");
-  function setBilling(mode) {
-    document.querySelectorAll("[data-billing]").forEach((b) => b.classList.toggle("is-on", b.dataset.billing === mode));
-    proPrice.textContent = mode === "yearly" ? S.plans.pro_price_yearly : S.plans.pro_price_monthly;
-    proBilling.textContent = mode === "yearly" ? S.plans.pro_billing_yearly : S.plans.pro_billing_monthly;
-    data.onboarding.billing_view = mode;
-  }
-  document.querySelectorAll("[data-billing]").forEach((b) => b.addEventListener("click", () => setBilling(b.dataset.billing)));
-  setBilling("yearly");
 
   // Birthday: insert slashes while typing
   const bday = document.querySelector("input[name='_birthday']");
@@ -158,17 +146,22 @@
   const tRow = document.getElementById("treatment-row");
   const learnBox = document.getElementById("learn-more-box");
   let switchEl = null;
-  const settingText = `<strong>${fill(frame.title)}</strong> ${fill(frame.body)} <a href="#" data-action="learn-more">${fill(S.treatment.learn_more)}</a>`;
+  const settingText = `${fill(frame.body)} <a href="#" data-action="learn-more">${fill(S.treatment.learn_more)}</a>`;
 
   if (cond.ui === "toggle") {
     // gain: ON = share · loss ("Do NOT …"): ON = don't share
     const initialOn = cond.frame === "gain" ? cond.default_share : !cond.default_share;
-    tRow.innerHTML = `<span class="row-lead"><button type="button" class="switch" role="switch" aria-checked="${initialOn}" aria-label="${esc(frame.title)}"></button></span><p>${settingText}</p>`;
+    tRow.innerHTML = `<span class="row-lead"><button type="button" class="switch" role="switch" aria-checked="${initialOn}" aria-labelledby="setting-text"></button>` +
+      `<span class="switch-state" aria-hidden="true"></span></span><p id="setting-text">${settingText}</p>`;
     switchEl = tRow.querySelector(".switch");
+    const switchState = tRow.querySelector(".switch-state");
+    const setSwitchLabel = (on) => { switchState.textContent = fill(on ? S.treatment.switch_on : S.treatment.switch_off); };
+    setSwitchLabel(initialOn);
     data.decision.toggle_initial = initialOn;
     switchEl.addEventListener("click", () => {
       const on = switchEl.getAttribute("aria-checked") !== "true";
       switchEl.setAttribute("aria-checked", String(on));
+      setSwitchLabel(on);
       data.decision.toggle_changes += 1;
       firstInteraction();
       debugBar();
@@ -300,7 +293,7 @@
       if (!validate(form)) return;
       const id = screen.dataset.screen;
       const ms = logTime();
-      if (id === "signin") state.email = form.elements["_email"].value.trim();
+      if (id === "register") state.email = form.elements["_email"].value.trim();
       if (id === "name") state.name = form.elements["_name"].value.trim();
       if (id === "treatment") leaveTreatment(ms);
       else collect(form, id === "questionnaire" ? data.answers : data.onboarding);

@@ -1,10 +1,10 @@
 {
-  "_readme": "All texts of the study live in this file. Placeholders: {brand} = brand name, {email} = email typed on the sign-in screen, {name} = name typed on the name screen. Simple HTML such as <a> or <strong> is allowed inside texts. Keys starting with _ are comments.",
+  "_readme": "All texts of the study live in this file. Placeholders: {brand} = brand name, {email} = email typed on the register screen, {name} = name typed on the name screen. Simple HTML such as <a> or <strong> is allowed inside texts. Keys starting with _ are comments.",
 
   "brand": "Nova",
 
   "conditions": {
-    "_readme": "default_share: true = sharing pre-selected (opt-out), false = not pre-selected (opt-in), null = active choice. In the gain frame switch ON = sharing; in the loss frame ('Do NOT ...') switch ON = NOT sharing. The app works out the switch position for you.",
+    "_readme": "default_share: true = sharing pre-selected (opt-out), false = not pre-selected (opt-in), null = active choice. In the gain frame switch ON = sharing; in the loss frame ('Do not ...') switch ON = NOT sharing. The app works out the switch position for you.",
     "active": [1, 2, 3, 4],
     "list": {
       "1": { "label": "opt-in × gain",        "default_share": false, "frame": "gain", "ui": "toggle" },
@@ -16,14 +16,12 @@
     },
     "frames": {
       "gain": {
-        "title": "Help improve our AI models:",
         "body": "Allow the use of your chats and coding sessions to train and improve {brand} AI models. Change anytime in privacy settings.",
         "choice_yes": "Allow",
         "choice_no": "Don’t allow"
       },
       "loss": {
-        "title": "Do NOT help improve our AI models:",
-        "body": "Do NOT allow the use of your chats and coding sessions to train and improve {brand} AI models. Change anytime in privacy settings.",
+        "body": "Do not allow the use of your chats and coding sessions to train and improve {brand} AI models. Change anytime in privacy settings.",
         "choice_yes": "Yes, don’t allow",
         "choice_no": "No"
       }
@@ -32,13 +30,18 @@
 
   "screens": {
     "study_intro": {
-      "title": "[TODO] Welcome to this study",
-      "body": "<p>[TODO] Study information: purpose (kept general), duration (about X minutes), anonymity, voluntary participation, right to withdraw, contact.</p><p>On the next pages you will set up a new AI assistant called {brand}. Please go through the set-up as you would in real life. <strong>Please do not enter real personal data</strong> – nothing you type during the set-up is stored.</p>",
+      "title": "Welcome, and thank you for participating!",
+      "body": "<p>In this study, you’ll get to know a new AI assistant and then answer a few short questions about your impression. It takes about 8 minutes.</p><p>Taking part is voluntary, your answers are collected anonymously and used for research as part of a master’s thesis. The data is stored securely and will be deleted by (date).</p>",
       "consent": "I have read the information and agree to take part.",
       "button": "Start"
     },
 
-    "signin": {
+    "scenario": {
+      "text": "Imagine you have decided to try {brand} AI, a new assistant that helps with writing, planning and everyday questions. You have just installed the app. On the next screens you will set it up. Please go through the setup as you would normally with a new app.",
+      "button": "Continue"
+    },
+
+    "register": {
       "title": "Think it through",
       "subtitle": "Your AI partner for everyday work",
       "email_placeholder": "Enter your email",
@@ -51,7 +54,7 @@
       "code_placeholder": "Enter verification code",
       "code_error": "This code is not correct. Please enter the code from the pop-up.",
       "button": "Verify email address",
-      "help": "Closed the pop-up? <a href=\"#\" data-action=\"show-code\">Show the code again</a>.<br>Wrong email? <a href=\"#\" data-action=\"goto\" data-target=\"signin\">Change email address</a>",
+      "help": "Closed the pop-up? <a href=\"#\" data-action=\"show-code\">Show the code again</a>.<br>Wrong email? <a href=\"#\" data-action=\"goto\" data-target=\"register\">Change email address</a>",
       "popup_title": "Your verification code",
       "popup_text": "Enter this code to verify {email}.",
       "popup_button": "OK"
@@ -97,63 +100,22 @@
       "team_text": "For organizations who want to collaborate and build at scale"
     },
 
-    "plans": {
-      "title": "Plans that grow with you",
-      "free_name": "Free",
-      "free_tagline": "Meet {brand}",
-      "free_price": "€0",
-      "free_button": "Use {brand} for free",
-      "free_features": [
-        "Chat on web, iOS, Android, and on your desktop",
-        "Generate code and visualize data",
-        "Write, edit, and create content",
-        "Search the web",
-        "Memory across conversations",
-        "Create files and run code"
-      ],
-      "pro_name": "Pro",
-      "pro_tagline": "For everyday productivity",
-      "pro_price_monthly": "€20",
-      "pro_price_yearly": "€17",
-      "pro_price_suffix": "/ month",
-      "pro_billing_yearly": "billed annually",
-      "pro_billing_monthly": "billed monthly",
-      "monthly": "Monthly",
-      "yearly": "Yearly",
-      "yearly_badge": "Save 15%",
-      "pro_button": "Get Pro plan",
-      "pro_features_intro": "Everything in Free, plus:",
-      "pro_features": [
-        "More usage",
-        "Access to more models",
-        "Projects to organize chats and documents",
-        "Deep research"
-      ]
-    },
-
-    "desktop": {
-      "title": "Get the most out of {brand} on your desktop",
-      "subtitle": "With the desktop app, {brand} can write code, work with your files, and automate tasks while you focus on other work.",
-      "tooltip": "{brand}",
-      "button": "Download for desktop",
-      "skip": "Skip"
-    },
-
     "treatment": {
       "title": "Before your first chat",
       "subtitle": "A few things to know, plus one setting to review",
-      "row1": "<strong>No ads:</strong> We don’t show you ads or let advertisers influence what {brand} says.",
+      "row1": "<strong>Ad-free chats:</strong> We won’t show you ads or let advertisers influence what {brand} says.",
       "row2": "<strong>Built to help, not harm:</strong> Automated safeguards protect your chats from violent, abusive, or deceptive content.",
       "learn_more": "Learn more",
+      "switch_on": "On",
+      "switch_off": "Off",
       "learn_more_text": "[TODO] Short explanation of what training on chats means. Must be identical in all conditions.",
       "button": "Continue"
     },
 
     "all_set": {
-      "title": "You’re all set",
-      "body": "{brand} can make mistakes. Please double-check important information.",
-      "button": "Continue",
-      "legal": "By continuing, you agree to our <a href=\"#\" data-dead-link>Terms</a> and have read our <a href=\"#\" data-dead-link>Privacy Policy</a>."
+      "title": "Almost done!",
+      "body": "One last step: a few short questions about your impressions.",
+      "button": "Continue to questionnaire"
     },
 
     "questionnaire": {

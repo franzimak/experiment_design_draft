@@ -42,26 +42,37 @@
   </form>
 </section>
 
-<!-- ======================= 1 · Sign in ======================= -->
-<section class="screen layout-hero" data-screen="signin">
-  <div class="logo-slot logo-left"></div>
-  <div class="hero">
-    <h1 class="display-xl" data-t="signin.title"></h1>
-    <p class="hero-sub" data-t="signin.subtitle"></p>
-    <form class="panel" novalidate>
-      <input class="input" type="email" name="_email" autocomplete="off" data-ph="signin.email_placeholder" required>
-      <button type="submit" class="btn btn-dark btn-block" data-t="signin.button"></button>
-      <p class="legal" data-t="signin.legal"></p>
+<!-- ======================= 1 · Scenario ======================= -->
+<section class="screen layout-center" data-screen="scenario">
+  <div class="logo-slot logo-top"></div>
+  <div class="center-block narrow">
+    <form class="stack" novalidate>
+      <p class="scenario-text" data-t="scenario.text"></p>
+      <button type="submit" class="btn btn-dark btn-block" data-t="scenario.button"></button>
     </form>
   </div>
 </section>
 
-<!-- ======================= 2 · Verify email ======================= -->
+<!-- ======================= 2 · Register ======================= -->
+<section class="screen layout-hero" data-screen="register">
+  <div class="logo-slot logo-left"></div>
+  <div class="hero">
+    <h1 class="display-xl" data-t="register.title"></h1>
+    <p class="hero-sub" data-t="register.subtitle"></p>
+    <form class="panel" novalidate>
+      <input class="input" type="email" name="_email" autocomplete="off" data-ph="register.email_placeholder" required>
+      <button type="submit" class="btn btn-dark btn-block" data-t="register.button"></button>
+      <p class="legal" data-t="register.legal"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ======================= 3 · Verify email ======================= -->
 <section class="screen layout-hero" data-screen="verify">
   <div class="logo-slot logo-left"></div>
   <div class="hero">
-    <h1 class="display-xl" data-t="signin.title"></h1>
-    <p class="hero-sub" data-t="signin.subtitle"></p>
+    <h1 class="display-xl" data-t="register.title"></h1>
+    <p class="hero-sub" data-t="register.subtitle"></p>
     <form class="panel panel-center" novalidate>
       <p data-t="verify.code_hint"></p>
       <input class="input input-center" type="text" name="_code" autocomplete="off" inputmode="numeric" data-ph="verify.code_placeholder" required>
@@ -75,7 +86,7 @@
   </div>
 </section>
 
-<!-- ======================= 3 · Terms ======================= -->
+<!-- ======================= 4 · Terms ======================= -->
 <section class="screen layout-center" data-screen="terms">
   <div class="logo-slot logo-top"></div>
   <div class="center-block">
@@ -99,11 +110,11 @@
   </div>
   <div class="verified-footer">
     Email verified as <span data-var="email"></span><br>
-    <a href="#" data-action="goto" data-target="signin">Use a different email</a>
+    <a href="#" data-action="goto" data-target="register">Use a different email</a>
   </div>
 </section>
 
-<!-- ======================= 4 · Birthday ======================= -->
+<!-- ======================= 5 · Birthday ======================= -->
 <section class="screen layout-center" data-screen="birthday">
   <div class="logo-slot logo-top"></div>
   <div class="center-block narrow">
@@ -117,11 +128,11 @@
   </div>
   <div class="verified-footer">
     Email verified as <span data-var="email"></span><br>
-    <a href="#" data-action="goto" data-target="signin">Use a different email</a>
+    <a href="#" data-action="goto" data-target="register">Use a different email</a>
   </div>
 </section>
 
-<!-- ======================= 5 · Name ======================= -->
+<!-- ======================= 6 · Name ======================= -->
 <section class="screen layout-center" data-screen="name">
   <div class="logo-slot logo-top"></div>
   <div class="center-block narrow">
@@ -134,7 +145,7 @@
   </div>
 </section>
 
-<!-- ======================= 6 · Role ======================= -->
+<!-- ======================= 7 · Role ======================= -->
 <section class="screen layout-center" data-screen="role">
   <div class="logo-slot logo-top"></div>
   <div class="center-block narrow">
@@ -150,7 +161,7 @@
   </div>
 </section>
 
-<!-- ======================= 7 · Usage ======================= -->
+<!-- ======================= 8 · Usage ======================= -->
 <section class="screen layout-top" data-screen="usage">
   <div class="logo-slot logo-top"></div>
   <h1 class="display-s" data-t="usage.title"></h1>
@@ -174,84 +185,7 @@
   </div>
 </section>
 
-<!-- ======================= 8 · Plans ======================= -->
-<section class="screen layout-top" data-screen="plans">
-  <div class="logo-slot logo-top"></div>
-  <h1 class="display-s" data-t="plans.title"></h1>
-  <div class="plan-list">
-    <div class="plan-card">
-      <div class="plan-head">
-        <svg class="plan-icon" viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="24" cy="11" r="6" fill="none" stroke="#1a1a1a" stroke-width="1.8"/>
-          <circle cx="24" cy="11" r="2.2" fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
-          <path d="M24 17v27M24 30l-9-5M24 30l9-5" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
-          <circle cx="13" cy="24" r="3" fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
-          <circle cx="35" cy="24" r="3" fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
-        </svg>
-        <div class="plan-name" data-t="plans.free_name"></div>
-        <div class="plan-tagline" data-t="plans.free_tagline"></div>
-        <div class="plan-price" data-t="plans.free_price"></div>
-        <button type="button" class="btn btn-dark btn-block" data-action="skip" data-record="plan=free" data-t="plans.free_button"></button>
-      </div>
-      <ul class="plan-features" data-list="plans.free_features"></ul>
-    </div>
-
-    <div class="plan-card plan-card-tinted">
-      <div class="plan-head">
-        <div class="plan-head-row">
-          <svg class="plan-icon" viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="9" r="5.5" fill="none" stroke="#1a1a1a" stroke-width="1.8"/>
-            <circle cx="24" cy="9" r="2" fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
-            <path d="M24 14.5V46M24 26l-10-5M24 26l10-5M24 36l-10-5M24 36l10-5" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="12" cy="20" r="2.8" fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
-            <circle cx="36" cy="20" r="2.8" fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
-            <circle cx="12" cy="30" r="2.8" fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
-            <circle cx="36" cy="30" r="2.8" fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
-          </svg>
-          <div class="billing-toggle" role="group">
-            <button type="button" data-billing="monthly" data-t="plans.monthly"></button>
-            <button type="button" data-billing="yearly" class="is-on"><span data-t="plans.yearly"></span> · <span class="save" data-t="plans.yearly_badge"></span></button>
-          </div>
-        </div>
-        <div class="plan-name" data-t="plans.pro_name"></div>
-        <div class="plan-tagline" data-t="plans.pro_tagline"></div>
-        <div class="plan-price">
-          <span id="pro-price"></span>
-          <span class="plan-price-suffix"><span data-t="plans.pro_price_suffix"></span><br><span id="pro-billing"></span></span>
-        </div>
-        <button type="button" class="btn btn-dark btn-block" data-action="skip" data-record="plan=pro" data-t="plans.pro_button"></button>
-      </div>
-      <p class="plan-features-intro" data-t="plans.pro_features_intro"></p>
-      <ul class="plan-features" data-list="plans.pro_features"></ul>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= 9 · Desktop app ======================= -->
-<section class="screen layout-top" data-screen="desktop">
-  <div class="logo-slot logo-top"></div>
-  <h1 class="display-s wide" data-t="desktop.title"></h1>
-  <p class="sub sub-wide" data-t="desktop.subtitle"></p>
-  <div class="dock-stage" aria-hidden="true">
-    <div class="dock">
-      <span class="dock-app app-a"><svg viewBox="0 0 40 40"><path d="M8 14h10l3 3h11v15H8z" fill="#fff" opacity=".95"/></svg></span>
-      <span class="dock-app app-b"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="11" fill="none" stroke="#fff" stroke-width="3"/><path d="M20 12v8l6 4" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span>
-      <span class="dock-app app-nova">
-        <span class="dock-tip" data-t="desktop.tooltip"></span>
-        <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="5" fill="#fff"/><ellipse cx="16" cy="16" rx="12" ry="5" fill="none" stroke="#fff" stroke-width="2" transform="rotate(-30 16 16)"/></svg>
-        <svg class="cursor" viewBox="0 0 24 24"><path d="M5 2l14 11h-7l4 8-3 1.5-4-8L5 19z" fill="#fff" stroke="#1a1a1a" stroke-width="1.4" stroke-linejoin="round"/></svg>
-        <span class="dock-dot"></span>
-      </span>
-      <span class="dock-app app-c"><svg viewBox="0 0 40 40"><rect x="9" y="11" width="22" height="18" rx="3" fill="#fff"/><path d="M11 26l6-7 5 5 3-3 4 5" fill="none" stroke="#6aa9d8" stroke-width="2.4" stroke-linejoin="round"/></svg></span>
-    </div>
-  </div>
-  <div class="center-actions">
-    <button type="button" class="btn btn-dark btn-wide" data-action="skip" data-record="desktop=download" data-t="desktop.button"></button>
-    <button type="button" class="btn-text" data-action="skip" data-record="desktop=skip" data-t="desktop.skip"></button>
-  </div>
-</section>
-
-<!-- ============ 10 · TREATMENT – Before your first chat ============ -->
+<!-- ============ 9 · TREATMENT – Before your first chat ============ -->
 <section class="screen layout-center" data-screen="treatment">
   <div class="logo-slot logo-top"></div>
   <div class="center-block wide">
@@ -281,8 +215,9 @@
   </div>
 </section>
 
-<!-- ======================= 11 · All set ======================= -->
+<!-- ======================= 10 · All set ======================= -->
 <section class="screen layout-center plain" data-screen="all_set">
+  <div class="logo-slot logo-top"></div>
   <div class="center-block narrow">
     <svg class="check-badge" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#0d0d0d"/><path d="M8.5 14.5l3.6 3.5 7.4-7.6" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <h1 class="title-sans" data-t="all_set.title"></h1>
@@ -290,7 +225,6 @@
     <form novalidate>
       <button type="submit" class="btn btn-dark btn-pill btn-block" data-t="all_set.button"></button>
     </form>
-    <p class="legal" data-t="all_set.legal"></p>
   </div>
 </section>
 
