@@ -1,0 +1,45 @@
+{
+  "participant_id": "mww4a4vl7c5wrv",
+  "condition_id": 3,
+  "condition_label": "opt-out × gain",
+  "default_share": true,
+  "frame": "gain",
+  "ui": "toggle",
+  "forced_condition": false,
+  "started_at": "2026-11-25T12:45:53.841Z",
+  "finished_at": "2026-11-26T14:31:44.381Z",
+  "screen_order": [
+    "study_intro",
+    "signin",
+    "verify",
+    "terms",
+    "signin",
+    "verify",
+    "study_intro",
+    "debrief"
+  ],
+  "screen_times_ms": {
+    "study_intro": 47979338,
+    "signin": 1302,
+    "verify": 16175,
+    "terms": 31992
+  },
+  "decision": {
+    "toggle_initial": true,
+    "toggle_final": null,
+    "toggle_changes": 0,
+    "choice": null,
+    "consent_to_share": null,
+    "changed_default": null,
+    "learn_more_clicks": 0,
+    "first_interaction_ms": null,
+    "decision_time_ms": null
+  },
+  "onboarding": {
+    "billing_view": "yearly"
+  },
+  "answers": {},
+  "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/5.11492.5 Chrome/156.0.8078.75 Safari/537.36",
+  "screen_size": "1440x900",
+  "saved_at": "2026-11-26T15:31:44"
+}
