@@ -3,3 +3,6 @@
 __pycache__/
 .ipynb_checkpoints/
 .env
+
+# Collected responses (participant data) – kept local, never committed
+data/
